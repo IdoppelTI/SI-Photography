@@ -145,6 +145,10 @@ HEADER
     position: absolute;
     left: 50%;
     top: 40%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 .signation{

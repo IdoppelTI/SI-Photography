@@ -1,14 +1,19 @@
 /*
-Change Language
+Dropdown Menu
 */
-function changeToDE(){
-    document.getElementById("EN").style.display = "none";
-    document.getElementById("DE").style.display = "block";
-}
+function showDropdown(){
+    var c = document.getElementById("menu").children;
+    var w = window.innerWidth;
 
-function changeToEN(){
-    document.getElementById("DE").style.display = "none";
-    document.getElementById("EN").style.display = "block";
+    if(c[0].style.display == "none"){
+        for(var i = 0; i < 4; i++){
+            c[i].style.display = "block";
+        }
+    }else{
+        for(var i = 0; i < 4; i++){
+            c[i].style.display = "none";
+        }
+    }
 }
 
 /*
@@ -46,8 +51,6 @@ Parallax Effect
 $(window).scroll(function(){
     var wScroll = $(this).scrollTop();
 
-    console.log('hi')
-
     $('.logoParallax').css({
         'transform' : 'translate(0px, ' + wScroll * 0.2 + '%)'
     });
@@ -72,6 +75,10 @@ $(document).ready(function(){
 });
 */
 
+/*
+Show Scroll-Top mouse
+*/
+
 $(document).ready(function(){
     var windowHeight = $(window).outerHeight();
 
@@ -92,4 +99,14 @@ $(document).ready(function(){
     }
     });
 
+});
+
+/*
+Show Pagelinks
+*/
+
+$( window ).resize(function() {
+    if($( window ).width() >= 768){
+        $( "#menu" ).children().css( "display", "inline-block" );
+    }
 });

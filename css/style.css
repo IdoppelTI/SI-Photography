@@ -3,6 +3,11 @@
     margin: 0 auto;
 }
 
+body{
+  overflow-y: scroll;
+overflow-x: hidden;
+}
+
 #DE{
     display: none;
 }
@@ -28,9 +33,9 @@ SCROLL-BAR
     background-color: #e9e9e9;
 }
 
-/* 
+/*
 
-NAVIGATION BAR 
+NAVIGATION BAR
 
 */
 
@@ -54,6 +59,7 @@ NAVIGATION BAR
 /* Logo */
 #logo{
     height: 60px;
+    width: auto;
     margin: 10px 50px 10px 40px;
     float: left;
 }
@@ -102,27 +108,71 @@ NAVIGATION BAR
     transform: scale(0.9);
 }
 
+.glyphicon-tasks{
+    position: fixed;
+}
 
 #activeLink{
     bottom: -1px;
     border-bottom: 2px solid #ffffff;
 }
 
-.changeLanguage{
-    float: right;
-    height: 20px;
-    margin: 32px 3vw;
-    border: 2px solid white;
-    transition: all 0.1s ease-in-out 0s;
+.menu-icon{
+    width: auto;
+    height: 32px;
+    position: absolute;
+    right: 40px;
+    top: 24px;
+    display: none;
+    transition: all 0.2s ease-in-out;
 }
 
-.changeLanguage:hover{
-    transform: scale(1.05);
+.menu-icon:hover{
+    transform: scale(1.1);
 }
 
-/* 
+@media screen and (max-width: 768px){
+    .menu-icon{
+        display: block;
+    }
 
-HEADER 
+    #menu li{
+        width: 100%;
+        float: none;
+        display: none;
+    }
+
+    #menu li a{
+        text-align: center;
+        width: 100vw;
+        padding: 10px;
+        margin: 0 auto;
+    }
+
+    #menu li #activeLink{
+        background-color: #ffffff;
+        color: #202020;
+    }
+
+    #menu li a:before, #activeLink{
+        border:none;
+    }
+
+    #logo{
+        width: 150px;
+        height: auto;
+        float: left;
+        /*
+        position: relative;
+        left: 50vw;
+        margin-left: -75px;
+        */
+    }
+}
+
+/*
+
+HEADER
 
 */
 
@@ -145,16 +195,13 @@ HEADER
     position: absolute;
     left: 50%;
     top: 40%;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
 }
 
 .signation{
+    width: 360px;
     font-family: 'Reenie Beanie', cursive;
     font-weight: lighter;
-    font-size: 60px;
+    font-size: 59px;
     position: relative;
     left: -50%;
     top: -43%;
@@ -238,7 +285,43 @@ HEADER
     transition: all 0.2s ease-in-out;
 }
 
+.glyphicon-chevron-up{
+    color: #202020;
+    width: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 4px;
+    margin-top: 1px;
+    animation-name: scroll-arrow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
 /* Scroll-Mouse Animation */
+@keyframes scroll-arrow{
+    0% {top: 0.5vh;}
+    50% {top: 1vh;}
+    100% {top: 0.5vh;}
+}
+
+@-webkit-keyframes scroll-arrow{
+    0% {top: 0.5vh;}
+    50% {top: 1vh;}
+    100% {top: 0.5vh;}
+}
+
+@-moz-keyframes scroll-arrow{
+    0% {top: 0.5vh;}
+    50% {top: 1vh;}
+    100% {top: 0.5vh;}
+}
+
+@-o-keyframes scroll-arrow{
+    0% {top: 0.5vh;}
+    50% {top: 1vh;}
+    100% {top: 0.5vh;}
+}
+
 @keyframes scroll-wheel{
     0% {top: 1vh;}
     50% {top: 2vh;}
@@ -265,8 +348,8 @@ HEADER
 
 @keyframes scroll-mouse {
     0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-20px);}
-    60% {transform: translateY(-10px);}
+    40% {transform: translateY(-14px);}
+    60% {transform: translateY(-7px);}
 }
 
 @-webkit-keyframes scroll-mouse {
@@ -286,9 +369,9 @@ HEADER
     40% {transform: translateY(-20px);}
     60% {transform: translateY(-10px);}
 }
-/* 
+/*
 
-CONTENT 
+CONTENT
 
 */
 
@@ -301,12 +384,13 @@ CONTENT
 .headline{
     text-transform: lowercase;
     font-weight: bold;
-    font-size: 150px;
+    font-size: 10vw;
     padding-top: 20px;
 }
 
 .content{
     width: 80vw;
+    min-height: 100vh;
     margin: 0 auto;
     text-align: center;
     font-family: 'Raleway', sans-serif;
@@ -321,6 +405,51 @@ CONTENT
 
 .content p{
     font-size: 20px;
+    margin: 40px 0;
+}
+
+.parallaxHome{
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  height: 50vh;
+  width: 100vw;
+  left: -10vw;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  box-shadow: inset 0px 30px 30px -30px #202020;
+}
+
+.window1{
+  background-image: url("../images/img4.jpg");
+}
+
+.window2{
+  background-image: url("../images/img1.jpg");
+}
+
+.window3{
+  background-image: url("../images/img3.jpg");
+}
+
+.content h5, .content h5:active, .content h5:link, .content h5:visited{
+  position: relative;
+  left: 0%;
+  top: 45%;
+  transition: all 0.3s ease-in-out;
+}
+
+.content h5:hover{
+  transform: scale(1.05);
+}
+
+.content h5 a, .content h5 a:hover, .content h5 a:active, .content h5 a:link, .content h5 a:visited{
+  font-size: 300%;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  text-transform: lowercase;
 }
 
 .gallery{
@@ -372,6 +501,11 @@ CONTENT
         width: 98%;
         margin: 1%;
     }
+}
+
+iframe{
+  width: 64vw;
+  height: 36vw;
 }
 /*
 
